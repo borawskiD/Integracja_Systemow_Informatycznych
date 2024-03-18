@@ -3,3 +3,7 @@
 ### Laboratorium numer 1
 
 Kod w repozytorium :)
+
+### Laboratorium numer 2
+
+Gotowe :-)
