@@ -5,7 +5,6 @@ from django.utils import timezone
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # Dodaj niestandardowe pola użytkownika tutaj, jeśli jest to konieczne
 
 
 

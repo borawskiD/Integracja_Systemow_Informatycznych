@@ -54,7 +54,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')  # Przekieruj użytkownika do strony logowania po rejestracji
+            return redirect('login')
     else:
         form = UserRegistrationForm()
     return render(request, 'blog/register.html', {'form': form})
@@ -73,7 +73,7 @@ def add_comment_to_post(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
-            comment.author = request.user  # Ustawienie autora na bieżącego użytkownika
+            comment.author = request.user
             comment.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -89,10 +89,8 @@ def user_login(request):
             print(user)
             if user is not None:
                 login(request, user)
-                # Przekieruj użytkownika na stronę główną po zalogowaniu
                 return redirect('profile')
             else:
-                # Obsłuż błąd logowania
                 return render(request, 'blog/login.html', {'form': form, 'error': 'Nieprawidłowe dane logowania.'})
     else:
         form = UserLoginForm()
